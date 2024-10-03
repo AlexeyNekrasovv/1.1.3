@@ -9,34 +9,33 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private final UserDao userDao;
 
-    // Используем Hibernate-реализацию UserDao
     public UserServiceImpl() {
         userDao = new UserDaoHibernateImpl();
     }
 
-    //@Override
+    @Override
     public void createUsersTable() {
         userDao.createUsersTable();
     }
 
-    //@Override
+    @Override
     public void dropUsersTable() {
         userDao.dropUsersTable();
     }
 
-    //@Override
+    @Override
     public void saveUser(String name, String lastName, byte age) {
         userDao.saveUser(name, lastName, age);
         System.out.println("User с именем - " + name + " добавлен в базу данных");
     }
 
-    //@Override
+    @Override
     public void removeUserById(long id) {
         userDao.removeUserById(id);
         System.out.println("User с ID - " + id + " удалён из базы данных");
     }
 
-    //@Override
+    @Override
     public List<User> getAllUsers() {
         List<User> users = userDao.getAllUsers();
 
@@ -46,7 +45,7 @@ public class UserServiceImpl implements UserService {
         return users;
     }
 
-    //@Override
+    @Override
     public void cleanUsersTable() {
         userDao.cleanUsersTable();
     }
